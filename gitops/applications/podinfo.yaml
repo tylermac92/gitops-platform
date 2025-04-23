@@ -4,11 +4,11 @@ metadata:
   name: podinfo
   namespace: argocd
 spec:
-  project: default
+  project: platform               # or “default” if you skipped the AppProject
   source:
-    repoURL: https://stefanprodan.github.io/podinfo
-    chart: podinfo
-    targetRevision: 6.8.0
+    repoURL: https://stefanprodan.github.io/podinfo   # Helm repo URL
+    chart: podinfo                                    # <── Helm field, not path
+    targetRevision: 6.8.0                             # lock chart version
     helm:
       values: |-
         replicaCount: 1
@@ -18,7 +18,7 @@ spec:
           hosts:
             - host: podinfo.localhost
               paths:
-              - /
+                - /
           annotations:
             traefik.ingress.kubernetes.io/router.entrypoints: web
   destination:
