@@ -1,0 +1,15 @@
+global:
+  image:
+    tag: v2.12.12
+
+configs:
+  params:
+    server.insecure: "true"
+
+server:
+  ingress:
+    enabled: true
+    annotations:
+      traefik.ingress.kubernetes.io/router.entrypoints: web
+    hosts:
+      - argocd.localhost
