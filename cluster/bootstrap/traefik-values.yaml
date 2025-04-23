@@ -1,0 +1,14 @@
+ports:
+  web:
+    redirections:
+      entryPoint:
+        to: websecure
+        scheme: https
+        permanent: true
+  websecure:
+    tls:
+      enabled: true
+
+service:
+  annotations:
+    metallb.universe.tf/address-pool: default
