@@ -9,4 +9,4 @@ spec:
     - namespace: '*'
       server: https://kubernetes.default.svc
   sourceRepos:
-    - https://github.com/tylermac92/gitops-platform
+    - '*'
