@@ -48,4 +48,4 @@ jobs:
           commit-message: "ci: bump hello-api image to ${{ github.sha }}"
           title: "ci: bump hello-api image to ${{ github.sha }}"
           body: "Automated bump of hello-api image tag via CI"
-          paths: charts/hello-api/values.yaml
+          path: charts/hello-api/values.yaml
