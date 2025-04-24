@@ -21,7 +21,7 @@ spec:
         path: charts/hello-api
         helm:
           valueFiles:
-            - envs/{{path.basename}}/values.yaml
+            - ../../envs/{{path.basename}}/values.yaml
       destination:
         server: https://kubernetes.default.svc
         namespace: hello-api-{{path.basename}}
