@@ -45,7 +45,7 @@ jobs:
         with:
           token: ${{ secrets.CR_PAT }}
           branch: update-hello-${{ github.sha }}
-          commit-message: "ci: bump hello-api image to ${{ github.sha }}"
+          commit-message: "ci: bump hello-api image to ${{ github.sha }} [skip ci]"
           title: "ci: bump hello-api image to ${{ github.sha }}"
           body: "Automated bump of hello-api image tag via CI"
           add-paths: |
