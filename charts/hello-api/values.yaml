@@ -1,6 +1,6 @@
 image:
   repository: ghcr.io/tylermac92/hello-api
-  tag: "164131305a39364c349bf5e457e55bc0baeef2c9"
+  tag: "8bd916d07d96386ab6bf58ce8f289a1e00a2a50a"
 service:
   type: ClusterIP
   port: 8080
