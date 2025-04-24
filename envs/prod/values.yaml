@@ -1,0 +1,10 @@
+image:
+  tag: "0.1.0"
+replicaCount: 3
+
+ingress:
+  hosts:
+    - host: hello-api.localhost
+      paths:
+        - path: /
+          pathType: Prefix
