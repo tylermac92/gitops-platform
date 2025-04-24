@@ -1,10 +1,9 @@
 serviceAccount:
   create: false
   name: ""
-
 image:
   repository: ghcr.io/tylermac92/hello-api
-  tag: "e55bd4974cd18fb5a889c2afef733079c6b8f5d1"
+  tag: "afed1c15dca1f272b8e35828a87bc4bdfe108acd"
 service:
   type: ClusterIP
   port: 8080
