@@ -1,12 +1,15 @@
 serviceAccount:
   create: false
   name: ""
+
 image:
   repository: ghcr.io/tylermac92/hello-api
   tag: "d53765cbda4ac7a84639066e0272ebedb41016ac"
+
 service:
   type: ClusterIP
   port: 8080
+
 ingress:
   enabled: true
   className: traefik
@@ -17,3 +20,9 @@ ingress:
       paths:
         - path: /
           pathType: Prefix
+
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 1
+  targetCPUUtilizationPercentage: 80
