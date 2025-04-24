@@ -3,7 +3,7 @@ serviceAccount:
   name: ""
 image:
   repository: ghcr.io/tylermac92/hello-api
-  tag: "1ff657b861ebf68f3fde077d9fcc5abb7f2f20f2"
+  tag: "cd9dcfb70962308a823e1978ec65f782106716e7"
 service:
   type: ClusterIP
   port: 8080
