@@ -1,0 +1,51 @@
+name: CI / Build & Bump hello-api
+
+on:
+  push:
+    paths:
+      - 'apps/hello-api/**'
+      - 'charts/hello-api/**'
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: |
+          pip install Flask
+
+      - name: Log in to GitHub Container Registry
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build & push Docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: ./apps/hello-api
+          push: true
+          tags: ghcr.io/${{ github.repository_owner }}/hello-api:${{ github.sha }}
+
+      - name: Bump image tag in Helm chart
+        run: |
+          yq eval -i ".image.tag = \"${{ github.sha }}\"" charts/hello-api/values.yaml
+
+      - name: Create Pull Request for tag bump
+        uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: update-hello-${{ githu.sha }}
+          commit-message: "ci: bump hello-api image to ${{ github.sha }}"
+          title: "ci: bump hello-api image to ${{ github.sha }}"
+          body: "Automated bump of hello-api image tag via CI"
+          paths: charts/hello-api/values.yaml
