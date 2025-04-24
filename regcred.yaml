@@ -1,0 +1,8 @@
+apiVersion: v1
+data:
+  DB_PASSWORD: U3VwZXJTZWNyZXQxMjMh
+kind: Secret
+metadata:
+  creationTimestamp: null
+  name: hello-api-config
+  namespace: hello-api
