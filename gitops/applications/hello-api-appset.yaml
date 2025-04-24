@@ -1,0 +1,30 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: hello-api-envs
+  namespace: argocd
+spec:
+  generators:
+    - directory:
+        path: envs
+  template:
+    metadata:
+      name: hello-api-{{path.basename}}
+    spec:
+      project: platform
+      source:
+        repoURL: https://github.com/tylermac92/gitops-platform
+        targetRevision: main
+        path: charts/hello-api
+        helm:
+          valueFiles:
+            - envs/{path.basename}}/values.yaml
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: hello-api-{{path.basename}}
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+        syncOptions:
+          - CreateNamespace=true

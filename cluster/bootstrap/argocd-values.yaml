@@ -13,3 +13,10 @@ server:
       traefik.ingress.kubernetes.io/router.entrypoints: web
     hosts:
       - argocd.localhost
+
+applicationSet:
+  enabled: true
+  containerPorts:
+    metrics: 8085
+    probe: 8084
+    webhook: 8083
