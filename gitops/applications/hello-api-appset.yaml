@@ -5,8 +5,11 @@ metadata:
   namespace: argocd
 spec:
   generators:
-    - directory:
-        path: envs
+    - git:
+        repoURL: https://github.com/tylermac92/gitops-platform
+        revision: main
+        directories:
+          - path: envs/*
   template:
     metadata:
       name: hello-api-{{path.basename}}
