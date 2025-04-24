@@ -1,4 +1,4 @@
-# Adding a comment blah blah blah blah blah
+# Adding a comment blah blah blah blah blah blah
 FROM python:3.11-slim
 WORKDIR /app
 COPY requirements.txt .
