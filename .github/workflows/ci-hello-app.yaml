@@ -43,7 +43,7 @@ jobs:
       - name: Create Pull Request for tag bump
         uses: peter-evans/create-pull-request@v5
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.CR_PAT }}
           branch: update-hello-${{ github.sha }}
           commit-message: "ci: bump hello-api image to ${{ github.sha }}"
           title: "ci: bump hello-api image to ${{ github.sha }}"
