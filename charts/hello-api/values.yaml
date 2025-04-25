@@ -3,7 +3,7 @@ serviceAccount:
   name: ""
 image:
   repository: ghcr.io/tylermac92/hello-api
-  tag: "e84e7eac5c209c1578cc5c75f25c156ba3a067ce"
+  tag: "f5ad6a303d5065ca0b7a9704fd71b9f5ff7a5b9e"
 imagePullSecrets:
   - name: ghcr-secret
 service:
