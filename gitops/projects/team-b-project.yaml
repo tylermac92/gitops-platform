@@ -1,0 +1,12 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: team-b
+  namespace: argocd
+spec:
+  description: Team B applications
+  sourceRepos:
+    - https://github.com/tylermac92/gitops-platform
+  destinations:
+    - namespace: team-b
+      server: https://kubernetes.default.svc

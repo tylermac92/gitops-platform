@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: argocd-rbac-cm
+  namespace: argocd
+data:
+  policy.default: role:readonly
+  policy.csv: |
+    # Team A can do everything within their Project
+    p, role:team-a, applications, *, team-a/*, allow
+    # Team B likewise
+    p, role:team-b, applications, *, team-b/*, allow
+
+    g, group:team-a, role:team-a
+    g, group:team-b, role:team-b
