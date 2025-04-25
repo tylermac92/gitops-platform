@@ -12,6 +12,6 @@ spec:
   namespaceSelector:
     matchNames:
       - argo-rollouts
-    endpoints:
-      - port: metrics
-        interval: 30s
+  endpoints:
+    - port: metrics
+      interval: 30s
